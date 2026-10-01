@@ -1,11 +1,11 @@
 node {
-  stage('SCM checkin32') {
+  stage('SCM') {
     checkout scm
   }
   stage('SonarQube Analysis') {
     def mvn = tool 'Default Maven';
     withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=petshop2 -Dsonar.projectName='petshop2'"
+      sh "${mvn}/bin/mvn clean verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=project3 -Dsonar.projectName='project3'"
     }
   }
 }
